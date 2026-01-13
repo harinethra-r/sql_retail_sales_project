@@ -2,11 +2,10 @@
 
 ## Project Overview
 
-**Project Title**: Retail Sales Analysis  
-**Level**: Beginner  
+**Project Title**: Retail Sales Analysis    
 **Database**: `p1_retail_db`
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+This project demonstrates core SQL skills used by data analysts to explore, clean, and analyze retail sales data. It focuses on database setup, exploratory data analysis (EDA), and business-driven SQL queries to uncover insights from transactional sales data.
 
 ## Objectives
 
@@ -70,14 +69,14 @@ WHERE
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
+1. **Sales Made On November 5th, 2022**:
 ```sql
 SELECT *
 FROM retail_sales
 WHERE sale_date = '2022-11-05';
 ```
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
+2. **Clothing Sales (Nov 2022, Quantity ≥ 4)**:
 ```sql
 SELECT 
   *
@@ -90,7 +89,7 @@ WHERE
     quantity >= 4
 ```
 
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
+3. **Total Sales by Category**:
 ```sql
 SELECT 
     category,
@@ -100,7 +99,7 @@ FROM retail_sales
 GROUP BY 1
 ```
 
-4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**:
+4. **Average Age of Beauty Customers**:
 ```sql
 SELECT
     ROUND(AVG(age), 2) as avg_age
@@ -108,13 +107,13 @@ FROM retail_sales
 WHERE category = 'Beauty'
 ```
 
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1000.**:
+5. **High-Value Transactions (> 1000)**:
 ```sql
 SELECT * FROM retail_sales
 WHERE total_sale > 1000
 ```
 
-6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
+6. **Transactions by Gender & Category**:
 ```sql
 SELECT 
     category,
@@ -128,7 +127,7 @@ GROUP
 ORDER BY 1
 ```
 
-7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+7. **Best-Selling Month per Year**:
 ```sql
 SELECT 
        year,
@@ -147,7 +146,7 @@ GROUP BY 1, 2
 WHERE rank = 1
 ```
 
-8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
+8. **Top 5 Customers by Total Sales**:
 ```sql
 SELECT 
     customer_id,
@@ -158,7 +157,7 @@ ORDER BY 2 DESC
 LIMIT 5
 ```
 
-9. **Write a SQL query to find the number of unique customers who purchased items from each category.**:
+9. **Unique Customers per Category**:
 ```sql
 SELECT 
     category,    
@@ -167,7 +166,7 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
+10. **Sales by Shift (Morning / Afternoon / Evening)**:
 ```sql
 WITH hourly_sale
 AS
@@ -189,20 +188,30 @@ GROUP BY shift
 
 ## Findings
 
-- **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
-- **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
-- **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
-- **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
+- **Customer Demographics**: Customers span multiple age groups with diverse purchasing patterns
+- **High-Value Transactions**: Several premium purchases exceed $1,000
+- **Sales Trends**: Monthly trends reveal peak sales periods
+- **Customer Insights**: A small group of customers contributes disproportionately to total revenue
 
 ## Reports
 
-- **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
-- **Trend Analysis**: Insights into sales trends across different months and shifts.
-- **Customer Insights**: Reports on top customers and unique customer counts per category.
+- **Sales Summary**: Total sales, order volume, and category performance
+- **Trend Analysis**: Monthly and time-based sales patterns
+- **Customer Insights**: Top customers and category-level engagement
 
 ## Conclusion
 
-This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
+This project provides a comprehensive introduction to SQL for data analysis, covering:
+
+Database design
+
+Data cleaning
+
+Exploratory data analysis
+
+Business-focused SQL querying
+
+The insights generated can support data-driven decision-making related to customer behavior, sales performance, and product strategy.
 
 ## How to Use
 
